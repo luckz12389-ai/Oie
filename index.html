@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lunex</title>
+<link rel="icon" type="image/png" href="assets/lunex-moon.png">
+<meta name="theme-color" content="#0a0014">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div id="fx"></div>
+
+<!-- LOGIN -->
+<main id="login" class="screen">
+  <div class="login-card glass">
+    <div class="moon-wrap">
+      <img src="assets/lunex-moon.png" class="moon" alt="Lunex">
+      <div class="ring r1"></div><div class="ring r2"></div>
+    </div>
+    <img src="assets/lunex-text.png" class="wordmark" alt="Lunex">
+    <p class="sub">Entre para continuar</p>
+    <button class="oauth google" data-p="google">
+      <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.9 2.4 30.4 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>
+      Continuar com Google
+    </button>
+    <button class="oauth github" data-p="github">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      Continuar com GitHub
+    </button>
+    <button class="oauth discord" data-p="discord">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+      Continuar com Discord
+    </button>
+    <p id="cfgwarn" class="warn hidden">⚠ Configure o arquivo <b>config.js</b> com os dados do Supabase.</p>
+  </div>
+</main>
+
+<!-- APP -->
+<div id="app" class="screen hidden">
+  <header class="top glass">
+    <div class="brand"><img src="assets/lunex-moon.png" alt=""><img src="assets/lunex-text.png" class="brand-text" alt="Lunex"></div>
+    <div class="user">
+      <img id="uAvatar" alt="">
+      <div class="uinfo"><b id="uName"></b><span id="uRole" class="badge"></span></div>
+      <button id="logout" class="icon-btn" title="Sair">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs glass">
+    <button class="tab active" data-tab="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg><span>Home</span></button>
+    <button class="tab" data-tab="logs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-15.5 6.200L3 16"/><path d="M3 12A9 9 0 0 1 18.5 5.800L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></svg><span>Logs Updates</span></button>
+    <button class="tab" data-tab="game">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="5"/><path d="M7 11v4M5 13h4"/><circle cx="16" cy="12" r=".6"/><circle cx="18.5" cy="14.5" r=".6"/></svg><span>Game</span></button>
+    <button class="tab hidden" id="tabAdmin" data-tab="admin">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg><span>Admin</span></button>
+  </nav>
+
+  <section id="p-home" class="page active">
+    <div class="card glass hero">
+      <img src="assets/lunex-moon.png" class="hero-moon" alt="">
+      <p class="lang">🇺🇲 Hello! This is the official Lunex website. Updates and the game itself will be posted here. If you discover any bugs, please let us know!</p>
+      <p class="lang">🇧🇷 Olá! este é o site oficial da Lunex, aqui sera postado update e o próprio jogo em si, caso descubra bugs basta nos avisar!</p>
+    </div>
+    <div class="card glass redeem">
+      <h3>Código de Admin</h3>
+      <p class="muted">Recebeu um código do Owner? Digite aqui.</p>
+      <div class="row"><input id="codeIn" placeholder="LUNEX-XXXX-XXXX"><button id="redeemBtn" class="btn">Ativar</button></div>
+      <p id="redeemMsg" class="muted"></p>
+    </div>
+  </section>
+
+  <section id="p-logs" class="page">
+    <div id="composer-logs" class="card glass composer hidden"></div>
+    <div id="list-logs"></div>
+  </section>
+
+  <section id="p-game" class="page">
+    <div id="composer-game" class="card glass composer hidden"></div>
+    <div id="list-game"></div>
+  </section>
+
+  <section id="p-admin" class="page">
+    <div class="card glass">
+      <h3>Gerar conta de Admin</h3>
+      <p class="muted">Gere um código e envie para a pessoa. Ao ativar, ela vira Admin (usa uma vez).</p>
+      <button id="genCode" class="btn">Gerar código</button>
+      <div id="codes"></div>
+    </div>
+  </section>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
